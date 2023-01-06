@@ -1,0 +1,31 @@
+<!-- index.html (myTemplate) -->
+
+<!DOCTYPE html>
+<html>
+<head><meta charset='utf-8'>
+<title>Home Page</title>
+</head>
+    <body>
+        {% extends "base.html" %}
+        {% block title %}English News {% endblock %}
+        {% block tvname %} {{tv.name}} {% endblock %}
+        {% block menu %}
+        <ul class='nav navbar-nav'>
+            <li class='active'><a href='/'>Home</a></li>
+            <li><a href='{% url 'tv-url' 0 %}'>Gundam Info</a></li>
+            <li><a href='{% url 'tv-url' 1 %}'>ELDEN RING</a></li>
+            <li><a href='{% url 'tv-url' 2 %}'>On Ok Rock</a></li>
+            <li><a href='{% url 'tv-url' 3 %}'>God of War Ragnarök</a></li>
+            <li><a href='{% url 'tv-url' 4 %}'>Bloodborne</a></li>
+            <li><a href='{% url 'tv-url' 5 %}'>鐵血孤兒</a></li>
+            <li><a href='{% url 'tv-url' 6 %}'>冰雪奇緣2</a></li>
+            </ul>
+        {% endblock %}
+        {% block content %}
+        <div class='container'>
+        <div id='tvcode' align='center'>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{tv.tvcode}}?autoplay=1" frameborder="0" allowfullscreen></iframe>
+        </div>
+        </div>
+        {% endblock %}
+</body>
